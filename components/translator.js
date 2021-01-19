@@ -56,7 +56,10 @@ class Translator {
       translation = this.britishToAmerican(text);
     }
 
-    console.log(terms)
+    if (translation === text){
+        translation = "Everything looks good to me!"
+    }
+
     return translation;
   }
 }
