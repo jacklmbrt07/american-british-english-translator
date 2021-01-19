@@ -8,9 +8,11 @@ class Translator {
   americanToBritish(text) {
     let translation;
     var timeRegex = /(?<=\d)\:(?=\d{2})/g
+    var titleRegex = /(?<=mr|mrs|ms|mx|dr|prof)\./gi
 
     translation = text.replace(timeRegex, ".")
-
+    translation = text.replace(titleRegex, "")
+    
     return translation;
   }
 
