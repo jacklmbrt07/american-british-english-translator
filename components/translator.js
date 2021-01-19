@@ -29,12 +29,14 @@ class Translator {
       );
       translation = translation.replace(
         term[0].charAt(0).toUpperCase() + term[0].slice(1),
-        `<span class="highlight">${term[1].charAt(0).toUpperCase() + term[1].slice(1)}</span>`
+        `<span class="highlight">${
+          term[1].charAt(0).toUpperCase() + term[1].slice(1)
+        }</span>`
       );
     });
 
     var timeRegex = /(([0-9]|0[0-9]|1[0-9]|2[0-3]):([0-5][0-9]))/g;
-    let times = translation.match(timeRegex);
+    var times = translation.match(timeRegex);
     if (times) {
       times.forEach((time) => {
         translation = translation.replace(
@@ -57,12 +59,14 @@ class Translator {
       );
       translation = translation.replace(
         term[1].charAt(0).toUpperCase() + term[1].slice(1),
-        `<span class="highlight">${term[0].charAt(0).toUpperCase() + term[0].slice(1)}</span>`
+        `<span class="highlight">${
+          term[0].charAt(0).toUpperCase() + term[0].slice(1)
+        }</span>`
       );
     });
 
     var timeRegex = /(([0-9]|0[0-9]|1[0-9]|2[0-3])(\.)([0-5][0-9]))/g;
-    let times = translation.match(timeRegex);
+    var times = translation.match(timeRegex);
     if (times) {
       times.forEach((time) => {
         translation = translation.replace(
