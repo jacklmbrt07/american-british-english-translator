@@ -14,16 +14,14 @@ Object.keys(americanToBritishSpelling).forEach((key) => {
 Object.keys(britishOnly).forEach((key) => {
   terms.push([britishOnly[key], key]);
 });
-Object.keys(americanToBritishTitles).forEach((key) => {
-  terms.push([key, americanToBritishTitles[key]]);
-});
+
 
 class Translator {
   americanToBritish(text) {
     let translation = text;
 
     terms.forEach((term) => {
-      var regexAmerican = new RegExp(`\\b${term[0]}\\b`, "g");
+      var regexAmerican = new RegExp(`\\b${term[0]}\\b`, "gi");
       var regexAmericanCap = new RegExp(
         `\\b${term[0].charAt(0).toUpperCase() + term[0].slice(1)}\\b`,
         "g"

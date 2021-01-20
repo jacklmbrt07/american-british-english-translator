@@ -48,7 +48,45 @@ suite("Unit Tests", () => {
       done();
     });
 
+    test("Translate 'The parking lot was full.' to British English", (done) => {
+      assert.equal(
+        translator
+          .translate("The parking lot was full.", locale[0])
+          .replace(spanRegex, ""),
+        "The car park was full."
+      );
+      done();
+    });
 
+    test("Translate 'Like a high tech Rube Goldberg machine.' to British English", (done) => {
+      assert.equal(
+        translator
+          .translate("Like a high tech Rube Goldberg machine.", locale[0])
+          .replace(spanRegex, ""),
+        "Like a high tech Heath Robinson device."
+      );
+      done();
+    });
+
+    test("Translate 'To play hooky means to skip class or work.' to British English", (done) => {
+      assert.equal(
+        translator
+          .translate("To play hooky means to skip class or work.", locale[0])
+          .replace(spanRegex, ""),
+        "To bunk off means to skip class or work."
+      );
+      done();
+    });
+
+    test("Translate 'No Mr. Bond, I expect you to die.' to British English", (done) => {
+        assert.equal(
+          translator
+            .translate("No Mr. Bond, I expect you to die.", locale[0])
+            .replace(spanRegex, ""),
+          "No Mr Bond, I expect you to die."
+        );
+        done();
+      });
   });
 
   suite("British to American english tests", () => {});
