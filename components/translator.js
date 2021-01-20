@@ -23,12 +23,18 @@ class Translator {
     let translation = text;
 
     terms.forEach((term) => {
+      var regexAmerican = new RegExp(`\\b${term[0]}\\b`, "g");
+      var regexAmericanCap = new RegExp(
+        `\\b${term[0].charAt(0).toUpperCase() + term[0].slice(1)}\\b`,
+        "g"
+      );
+
       translation = translation.replace(
-        term[0],
+        regexAmerican,
         `<span class="highlight">${term[1]}</span>`
       );
       translation = translation.replace(
-        term[0].charAt(0).toUpperCase() + term[0].slice(1),
+        regexAmericanCap,
         `<span class="highlight">${
           term[1].charAt(0).toUpperCase() + term[1].slice(1)
         }</span>`
@@ -53,12 +59,18 @@ class Translator {
     let translation = text;
 
     terms.forEach((term) => {
+      var regexBritish = new RegExp(`\\b${term[1]}\\b`, "g");
+      var regexBritishCap = new RegExp(
+        `\\b${term[1].charAt(0).toUpperCase() + term[1].slice(1)}\\b`,
+        "g"
+      );
+
       translation = translation.replace(
-        term[1],
+        regexBritish,
         `<span class="highlight">${term[0]}</span>`
       );
       translation = translation.replace(
-        term[1].charAt(0).toUpperCase() + term[1].slice(1),
+        regexBritishCap,
         `<span class="highlight">${
           term[0].charAt(0).toUpperCase() + term[0].slice(1)
         }</span>`

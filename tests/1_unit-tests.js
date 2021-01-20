@@ -27,6 +27,28 @@ suite("Unit Tests", () => {
       );
       done();
     });
+
+    test("Translate 'We had a party at my friend's condo.' to British English", (done) => {
+      assert.equal(
+        translator
+          .translate("We had a party at my friend's condo.", locale[0])
+          .replace(spanRegex, ""),
+        "We had a party at my friend's flat."
+      );
+      done();
+    });
+
+    test("Translate 'Can you toss this in the trashcan for me?' to British English", (done) => {
+      assert.equal(
+        translator
+          .translate("Can you toss this in the trashcan for me?", locale[0])
+          .replace(spanRegex, ""),
+        "Can you toss this in the bin for me?"
+      );
+      done();
+    });
+
+
   });
 
   suite("British to American english tests", () => {});
