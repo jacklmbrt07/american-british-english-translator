@@ -20,7 +20,7 @@ class Translator {
     let translation = text;
 
     terms.forEach((term) => {
-      var regexAmerican = new RegExp(`\\b${term[0]}\\b`, "gi");
+      var regexAmerican = new RegExp(`\\b${term[0]}\\b`, "g");
       var regexAmericanCap = new RegExp(
         `\\b${term[0].charAt(0).toUpperCase() + term[0].slice(1)}\\b`,
         "g"
@@ -67,7 +67,7 @@ class Translator {
     let translation = text;
 
     terms.forEach((term) => {
-      var regexBritish = new RegExp(`\\b${term[1]}\\b`, "gi");
+      var regexBritish = new RegExp(`\\b${term[1]}\\b`, "g");
       var regexBritishCap = new RegExp(
         `\\b${term[1].charAt(0).toUpperCase() + term[1].slice(1)}\\b`,
         "g"
