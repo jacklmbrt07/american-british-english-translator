@@ -15,7 +15,6 @@ Object.keys(britishOnly).forEach((key) => {
   terms.push([britishOnly[key], key]);
 });
 
-
 class Translator {
   americanToBritish(text) {
     let translation = text;
@@ -50,6 +49,17 @@ class Translator {
       });
     }
 
+    var titleRegex = /(mr|mrs|ms|mx|dr|prof)\.\s/gi;
+    var titles = translation.match(titleRegex);
+    if (titles) {
+      titles.forEach((title) => {
+        translation = translation.replace(
+          title,
+          `<span class="highlight">${title.replace(".", "")}</span>`
+        );
+      });
+    }
+
     return translation;
   }
 
@@ -57,7 +67,7 @@ class Translator {
     let translation = text;
 
     terms.forEach((term) => {
-      var regexBritish = new RegExp(`\\b${term[1]}\\b`, "g");
+      var regexBritish = new RegExp(`\\b${term[1]}\\b`, "gi");
       var regexBritishCap = new RegExp(
         `\\b${term[1].charAt(0).toUpperCase() + term[1].slice(1)}\\b`,
         "g"
@@ -82,6 +92,17 @@ class Translator {
         translation = translation.replace(
           time,
           `<span class="highlight">${time.replace(".", ":")}</span>`
+        );
+      });
+    }
+
+    var titleRegex = /(mr|mrs|ms|mx|dr|prof)\s/gi;
+    var titles = translation.match(titleRegex);
+    if (titles) {
+      titles.forEach((title) => {
+        translation = translation.replace(
+          title,
+          `<span class="highlight">${title.replace(" ", ". ")}</span>`
         );
       });
     }
