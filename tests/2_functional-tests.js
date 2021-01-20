@@ -71,7 +71,7 @@ suite("Functional Tests", () => {
         .request(server)
         .post("/api/translate")
         .send({
-          text: "    .    ",
+          text: "",
           locale: "american-to-british",
         })
         .end((err, res) => {

@@ -55,7 +55,7 @@ class Translator {
       titles.forEach((title) => {
         translation = translation.replace(
           title,
-          `<span class="highlight">${title.replace(".", "")}</span>`
+          `<span class="highlight">${(title.charAt(0).toUpperCase() + title.slice(1)).replace(".", "")}</span>`
         );
       });
     }
@@ -102,7 +102,7 @@ class Translator {
       titles.forEach((title) => {
         translation = translation.replace(
           title,
-          `<span class="highlight">${title.replace(" ", ". ")}</span>`
+          `<span class="highlight">${(title.charAt(0).toUpperCase() + title.slice(1)).replace(" ", ".")}</span> `
         );
       });
     }
