@@ -49,7 +49,7 @@ class Translator {
       });
     }
 
-    var titleRegex = /(mr|mrs|ms|mx|dr|prof)\.\s/gi;
+    var titleRegex = /(mr|mrs|ms|mx|dr|prof)\./gi;
     var titles = translation.match(titleRegex);
     if (titles) {
       titles.forEach((title) => {
